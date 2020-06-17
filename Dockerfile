@@ -2,9 +2,8 @@ FROM centos:7
 
 # install python and pip
 RUN yum install -y epel-release
-RUN apt-get update
-RUN apt-get install -y libzmq3-dev python3-pip
-RUN apt-get clean && rm -rf /var/lib/apt/lists/*
+RUN yum install -y libzmq3-dev python3-pip
+RUN apk update clean && rm -rf /var/lib/apt/lists/*
 
 # install our pacakges
 RUN pip3 install --upgrade pip
