@@ -2,10 +2,13 @@ FROM centos:7
 
 # install python and pip
 RUN yum install -y epel-release
-RUN yum install -y python36-devel python36-pip
+RUN apt-get update
+RUN apt-get install -y libzmq3-dev python3-pip
+RUN apt-get clean && rm -rf /var/lib/apt/lists/*
 
 # install our pacakges
-RUN pip3 install --user jupyterlab kaggle pandas scikit-learn xgboost 
+RUN pip3 install --upgrade pip
+RUN pip3 install -U jupyter jupyterlab kaggle pandas scikit-learn xgboost 
 # turns out xgboost needs this
 RUN yum install -y libgomp
 
