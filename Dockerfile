@@ -5,7 +5,7 @@ RUN yum install -y epel-release
 RUN yum install -y python36-devel python36-pip
 
 # install our pacakges
-RUN pip3 install jupyterlab kaggle pandas scikit-learn xgboost 
+RUN pip3 install --user jupyterlab kaggle pandas scikit-learn xgboost 
 # turns out xgboost needs this
 RUN yum install -y libgomp
 
